@@ -36,59 +36,30 @@ def print_singly_linked_list(node, sep, fptr):
         if node:
             fptr.write(sep)
 
-# Complete the insertNodeAtPosition function below.
-class Node:
-    def __init__(self, dataval=None):
-        self.dataval = dataval
-        self.nextval = None
-
-class SinglyLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert_node(self, newdata):
-        NewNode = Node(newdata)
-        if self.head is None:
-            self.head = NewNode
-            return
-        laste = self.head
-        while(laste.nextval):
-            laste = laste.nextval
-        laste.nextval=NewNode
-        
-def print_singly_linked_list(head,s,fptr):
-    printval = head
-    while printval is not None:
-        
-        data = str(printval.dataval)
-        # print("d=",data)
-        fptr.write(data+s)
-        printval = printval.nextval
-
-
+# Complete the insertNodeAtPosition function below       
 
 def insertNodeAtPosition(head, data, position):
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
     # print_singly_linked_list(head," ",fptr)
 
-    NewNode = Node(data)
+    NewNode = SinglyLinkedListNode(data)
     if head is None:
         head = NewNode
         return head
     laste = head
     if position==0:
-        NewNode.nextval = head
+        NewNode.next = head
         return head
     p = 0 
-    while(laste.nextval and p<position-1):
+    while(laste.next and p<position-1):
         # print(laste.dataval)
-        laste = laste.nextval
+        laste = laste.next
         p = p+1
     # print(p,laste.dataval)
-    nextto = laste.nextval
+    nextto = laste.next
     # print("next",nextto.dataval)
-    laste.nextval=NewNode
-    NewNode.nextval = nextto
+    laste.next=NewNode
+    NewNode.next = nextto
     print_singly_linked_list(head," ",fptr)
     return head
 
@@ -114,4 +85,3 @@ if __name__ == '__main__':
     fptr.write('\n')
 
     fptr.close()
-
