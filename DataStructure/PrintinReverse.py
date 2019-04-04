@@ -130,21 +130,9 @@ def insertNodeAtPosition(head, data, position):
 
 
 def reversePrint(head):
-    fptr = open(os.environ['OUTPUT_PATH'], 'a')
-    print("====")
-    # print_singly_linked_list(head,"\n",fptr)
-    current = head
-    nextto = None
-    prev  = None
-    while(current is not None):
-        nextto = current.nextval
-        current.nextval = prev
-        prev = current
-        current = nextto
-    
-    head = prev
-    
-    print_singly_linked_list(head,"\n",fptr)
+    if(head.nextval is not None):
+        reversePrint(head.nextval)
+    print(head.dataval)
 
         
 
