@@ -9,6 +9,7 @@ import sys
 # Complete the countApplesAndOranges function below.
 def countApplesAndOranges(s, t, a, b, apples, oranges):
     print(sum([1 for each in apples if s <= (each + a) <=t]))
+
     print(sum([1 for each in oranges if s <= (each + b) <=t]))
 
 if __name__ == '__main__':
